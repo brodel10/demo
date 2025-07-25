@@ -2,11 +2,12 @@
 
 import { Section, Block, Link } from "@/devlink/_Builtin";
 import { Footer } from "@/devlink/Footer";
+import { Navigation } from "@/devlink";
 
 export default function Home() {
   return (
     <>
-      {" "}
+      <Navigation />
       <Section
         tag="section"
         style={{
@@ -40,7 +41,11 @@ export default function Home() {
             >
               Welcome to Webflow Cloud
             </h1>
-            <Block tag="p" className="margin-bottom-24px">
+            <Block
+              tag="p"
+              className="margin-bottom-24px"
+              style={{ color: "black" }}
+            >
               This is a simple test using Basic components with enhanced
               styling.
             </Block>
