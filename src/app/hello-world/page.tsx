@@ -15,7 +15,7 @@ export default function HelloWorld() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/app/api/test");
+        const res = await fetch("/demo/api/test");
         if (!res.ok) throw new Error(`Error ${res.status}`);
         const data: ApiResponse = await res.json();
         setSomeData(data);
