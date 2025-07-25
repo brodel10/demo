@@ -3,14 +3,21 @@
 import { Footer, Navigation } from "@/devlink";
 import { useEffect, useState } from "react";
 
+type ApiResponse = {
+  message: string;
+  timestamp: number;
+  data: { body: string }[];
+};
+
 export default function HelloWorld() {
-  const [someData, setSomeData] = useState();
+  const [someData, setSomeData] = useState<ApiResponse | undefined>();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch("/app/api/test");
         if (!res.ok) throw new Error(`Error ${res.status}`);
-        const data = await res.json();
+        const data: ApiResponse = await res.json();
         setSomeData(data);
       } catch (err) {
         console.error("Failed to fetch API:", err);
