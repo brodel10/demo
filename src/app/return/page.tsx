@@ -1,14 +1,17 @@
-// app/return/page.tsx or page.jsx
-
 import { redirect } from "next/navigation";
 import { stripe } from "@/lib/stripe";
 
 type Props = {
-  searchParams: { session_id?: string };
+  searchParams?: { session_id?: string | string[] };
 };
 
 export default async function ReturnPage({ searchParams }: Props) {
-  const session_id = searchParams?.session_id;
+  const sessionParam = searchParams?.session_id;
+
+  // Support string or string[] just in case
+  const session_id = Array.isArray(sessionParam)
+    ? sessionParam[0]
+    : sessionParam;
 
   if (!session_id) {
     throw new Error("Please provide a valid session_id (`cs_test_...`)");
