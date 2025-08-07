@@ -16,7 +16,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
   }
 }
 
-// Initialize Stripe only if key is available
+
 export const stripe = new Stripe(
   process.env.STRIPE_SECRET_KEY || "sk_test_dummyKey",
   { apiVersion }
