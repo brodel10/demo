@@ -4,7 +4,7 @@ import "server-only";
 import Stripe from "stripe";
 
 // Optional: Set your Stripe API version explicitly
-const apiVersion: Stripe.LatestApiVersion = "2024-08-01";
+const apiVersion: Stripe.LatestApiVersion = "2025-07-30.basil";
 
 if (!process.env.STRIPE_SECRET_KEY) {
   if (process.env.NODE_ENV === "production") {
