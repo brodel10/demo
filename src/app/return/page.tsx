@@ -1,14 +1,13 @@
 import { redirect } from "next/navigation";
 import { stripe } from "@/lib/stripe";
 
-type Props = {
-  searchParams?: { session_id?: string | string[] };
-};
-
-export default async function ReturnPage({ searchParams }: Props) {
+export default async function ReturnPage({
+  searchParams,
+}: {
+  searchParams?: Record<string, string | string[] | undefined>;
+}) {
   const sessionParam = searchParams?.session_id;
 
-  // Support string or string[] just in case
   const session_id = Array.isArray(sessionParam)
     ? sessionParam[0]
     : sessionParam;
