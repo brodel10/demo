@@ -6,7 +6,7 @@ import { stripe } from "@/lib/stripe";
 
 export async function fetchClientSecret() {
   const origin = (await headers()).get("origin");
-
+  console.log("im origin", origin);
   // Create Checkout Sessions from body params.
   const session = await stripe.checkout.sessions.create({
     ui_mode: "embedded",

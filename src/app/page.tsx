@@ -1,9 +1,26 @@
-import Checkout from "./components/checkout";
+"use client";
 
-export default function Page() {
+import { Section, Block, Link } from "@/devlink/_Builtin";
+import { Footer } from "@/devlink/Footer";
+import { Navigation } from "@/devlink";
+import Checkout from "@/app/components/checkout";
+
+export default function Home() {
   return (
-    <div id="checkout">
-      <Checkout />
-    </div>
+    <>
+      <Navigation />
+      <Section
+        tag="section"
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Checkout />
+      </Section>
+      <Footer />
+    </>
   );
 }
