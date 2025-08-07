@@ -1,13 +1,15 @@
 export const dynamic = "force-dynamic";
 
 import { redirect } from "next/navigation";
-import { getSession } from "../actions/getSession";
+// import { getSession } from "../actions/getSession";
+import { useState } from "react";
 
 // interface Props {
 //   searchParams?: { [key: string]: string | string[] | undefined };
 // }
 
 export default async function ReturnPage({ searchParams }) {
+  const [session, setSession] = useState();
   const sessionParam = searchParams?.session_id;
   const session_id = Array.isArray(sessionParam)
     ? sessionParam[0]
@@ -17,7 +19,22 @@ export default async function ReturnPage({ searchParams }) {
     throw new Error("Please provide a valid session_id (`cs_test_...`)");
   }
 
-  const session = await getSession(session_id);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `/demo/api/getSession?session_id=${session_id}`
+        );
+        setSession(await res.json());
+      } catch (err) {
+        console.error("Failed to fetch API:", err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // const session = await getSession(session_id);
 
   const status = session.status;
   const customerEmail = session.customer_details?.email || "your email";
