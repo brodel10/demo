@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+"use client";
 
 import { redirect } from "next/navigation";
 // import { getSession } from "../actions/getSession";
