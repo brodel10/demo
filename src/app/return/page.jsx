@@ -17,7 +17,7 @@ export default async function ReturnPage({ searchParams }) {
     throw new Error("Please provide a valid session_id (`cs_test_...`)");
   }
 
-  const session = getSession(session_id);
+  const session = await getSession(session_id);
 
   const status = session.status;
   const customerEmail = session.customer_details?.email || "your email";
