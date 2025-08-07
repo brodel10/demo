@@ -7,8 +7,7 @@ import { stripe } from "@/lib/stripe";
 //   searchParams?: { [key: string]: string | string[] | undefined };
 // }
 
-// @ts-expect-error: searchParams is not a Promise, but build system thinks it is
-export default async function ReturnPage({ searchParams }: Props) {
+export default async function ReturnPage({ searchParams }) {
   const sessionParam = searchParams?.session_id;
   const session_id = Array.isArray(sessionParam)
     ? sessionParam[0]

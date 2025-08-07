@@ -25,6 +25,6 @@
         "@cloudflare/workers-types/2023-07-01"
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/health-check/route.ts", "src/app/components/checkout.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/health-check/route.ts", "src/app/components/checkout.jsx", "src/app/return/page.jsx"],
   "exclude": ["node_modules"]
 }
