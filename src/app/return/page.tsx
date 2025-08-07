@@ -1,13 +1,13 @@
 import { redirect } from "next/navigation";
 import { stripe } from "@/lib/stripe";
 
-export default async function ReturnPage({
-  searchParams,
-}: {
-  searchParams?: Record<string, string | string[] | undefined>;
-}) {
-  const sessionParam = searchParams?.session_id;
+// interface Props {
+//   searchParams?: { [key: string]: string | string[] | undefined };
+// }
 
+// @ts-expect-error: searchParams is not a Promise, but build system thinks it is
+export default async function ReturnPage({ searchParams }: Props) {
+  const sessionParam = searchParams?.session_id;
   const session_id = Array.isArray(sessionParam)
     ? sessionParam[0]
     : sessionParam;
