@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { redirect } from "next/navigation";
-import { stripe } from "@/lib/stripe";
+import { getSession } from "../actions/getSession";
 
 // interface Props {
 //   searchParams?: { [key: string]: string | string[] | undefined };
@@ -17,9 +17,7 @@ export default async function ReturnPage({ searchParams }) {
     throw new Error("Please provide a valid session_id (`cs_test_...`)");
   }
 
-  const session = await stripe.checkout.sessions.retrieve(session_id, {
-    expand: ["line_items", "payment_intent"],
-  });
+  const session = getSession(session_id);
 
   const status = session.status;
   const customerEmail = session.customer_details?.email || "your email";
