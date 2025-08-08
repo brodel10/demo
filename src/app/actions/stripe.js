@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import { stripe } from "@/lib/stripe";
 
 export async function fetchClientSecret() {
-  //   const origin = (await headers()).get("origin");
+  const origin = (await headers()).get("origin");
   //   console.log("im origin", origin);
   // Create Checkout Sessions from body params.
   const session = await stripe.checkout.sessions.create({
@@ -19,10 +19,10 @@ export async function fetchClientSecret() {
       },
     ],
     mode: "payment",
-    return_url:
-      "https://playground-ff532a.webflow.io/demo/return?session_id={CHECKOUT_SESSION_ID}",
-    // return_url: `${origin}/demo/return?session_id={CHECKOUT_SESSION_ID}`,
+    // return_url:
+    //   "https://playground-ff532a.webflow.io/demo/return?session_id={CHECKOUT_SESSION_ID}",
+    return_url: `${origin}/demo/return?session_id={CHECKOUT_SESSION_ID}`,
   });
-
+  console.log(session);
   return session.client_secret;
 }
