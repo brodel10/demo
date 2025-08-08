@@ -13,14 +13,17 @@ const stripePromise = loadStripe(
 );
 console.log("another one", process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-async function fetchClientSecret({ priceId }) {
-  const res = await fetch("/api/checkout-session", {
+async function fetchClientSecret() {
+  const body = { priceId: "price_1RtCJiRXomxvbbb3U1707cID" };
+  const res = await fetch("/demo/api/checkout-session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ priceId }),
+    body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error("Failed to fetch client secret");
   const { clientSecret } = await res.json();
+  // .then((res) => console.log("howdy", res));
+  console.log(999, clientSecret);
   return clientSecret;
 }
 
