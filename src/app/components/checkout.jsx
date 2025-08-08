@@ -11,7 +11,7 @@ import { fetchClientSecret } from "../actions/stripe";
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
-
+console.log("another one", process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 export default function Checkout() {
   return (
     <div id="checkout">
