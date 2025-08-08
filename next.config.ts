@@ -5,10 +5,10 @@ const nextConfig: NextConfig = {
   experimental: {
     serverActions: {
       // allow both your Webflow domain and the internal cosmic.services host
-      allowedOrigins: [
-        "playground-ff532a.webflow.io",
-        "1165bbfa-b77d-4f9a-8efd-04a347180483.wf-app-prod.cosmic.webflow.services",
-      ],
+      // allowedOrigins: [
+      //   "playground-ff532a.webflow.io",
+      //   "1165bbfa-b77d-4f9a-8efd-04a347180483.wf-app-prod.cosmic.webflow.services",
+      // ],
     },
   },
 };
