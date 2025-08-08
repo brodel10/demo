@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       // cancel_url: `${origin}/app/`,
     });
     return NextResponse.json({ clientSecret: session.client_secret });
-  } catch (err) {
+  } catch (err: any) {
     console.error("Checkout-session failed:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
