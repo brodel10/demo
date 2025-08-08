@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   basePath: "/app",
   experimental: {
+    runtime: {
+      edge: true,
+    },
     serverActions: {
       // allow both your Webflow domain and the internal cosmic.services host
       // allowedOrigins: [
