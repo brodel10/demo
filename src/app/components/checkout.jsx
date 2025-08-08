@@ -28,6 +28,8 @@ async function fetchClientSecret() {
 }
 
 export default function Checkout() {
+  const sec = fetchClientSecret();
+  console.log("secretttt", sec);
   return (
     <div id="checkout">
       <EmbeddedCheckoutProvider
