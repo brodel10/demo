@@ -13,7 +13,7 @@ const stripePromise = loadStripe(
 );
 console.log("another one", process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
-async function fetchClientSecret({ priceId }: { priceId: string }) {
+async function fetchClientSecret({ priceId }) {
   const res = await fetch("/api/checkout-session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
