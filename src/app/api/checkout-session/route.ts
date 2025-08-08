@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 
 export async function POST(req: Request) {
-  const { priceId } = await req.json();
   const origin = req.headers.get("origin") || "";
   const session = await stripe.checkout.sessions.create({
     ui_mode: "embedded",
