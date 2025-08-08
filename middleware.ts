@@ -20,10 +20,10 @@ export function middleware(req: NextRequest) {
 export const config = {
   matcher: [
     // your App‐Router pages that use Server Actions:
-    "/demo/checkout",
-    "/demo/return",
+    "/app/checkout",
+    "/app/return",
     // any API routes you’ve defined:
-    "/demo/api/:path*",
+    "/app/api/:path*",
     "/api/:path*",
   ],
 };

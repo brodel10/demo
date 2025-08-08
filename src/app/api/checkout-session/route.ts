@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 
@@ -15,7 +17,7 @@ export async function POST(req: Request) {
       },
     ],
     mode: "payment",
-    return_url: `${origin}/demo/return?session_id={CHECKOUT_SESSION_ID}`,
+    return_url: `${origin}/app/return?session_id={CHECKOUT_SESSION_ID}`,
     // cancel_url: `${origin}/app/`,
   });
   return NextResponse.json({ clientSecret: session.client_secret });
